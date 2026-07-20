@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cell4You | Finance & Products</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">Cell4You</p>
+          <h1>Track monthly income, manage expenses, and shop smarter.</h1>
+          <p>
+            Use the three tabs to browse products, enter monthly financial data,
+            and review a clear income-vs-expense chart in USD.
+          </p>
+        </div>
+      </header>
+
+      <nav class="tabs" aria-label="Primary">
+        <button class="tab-btn active" data-target="products">Products</button>
+        <button class="tab-btn" data-target="data">Data</button>
+        <button class="tab-btn" data-target="chart">Chart</button>
+      </nav>
+
+      <main>
+        <section id="products" class="tab-panel active">
+          <div class="panel-heading">
+            <div>
+              <h2>Featured products</h2>
+              <p>Browse the catalog and add items to your cart.</p>
+            </div>
+          </div>
+
+          <div class="product-layout">
+            <div id="product-grid" class="product-grid"></div>
+
+            <aside class="cart-card">
+              <h3>Cart overview</h3>
+              <ul id="cart-items" class="cart-items"></ul>
+              <div class="cart-total">
+                <span>Total expense</span>
+                <strong id="cart-total">$0.00 USD</strong>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        <section id="data" class="tab-panel">
+          <div class="panel-heading">
+            <div>
+              <h2>Monthly income & expense data</h2>
+              <p>Enter values for each month to power the chart.</p>
+            </div>
+          </div>
+
+          <form id="finance-form" class="finance-form">
+            <div class="table-head">
+              <span>Month</span>
+              <span>Income (USD)</span>
+              <span>Expense (USD)</span>
+            </div>
+            <div id="month-rows"></div>
+          </form>
+
+          <div class="summary-row">
+            <div class="summary-card">
+              <p>Total income</p>
+              <strong id="income-total">$0.00</strong>
+            </div>
+            <div class="summary-card">
+              <p>Total expense</p>
+              <strong id="expense-total">$0.00</strong>
+            </div>
+          </div>
+        </section>
+
+        <section id="chart" class="tab-panel">
+          <div class="panel-heading">
+            <div>
+              <h2>Income vs expense chart</h2>
+              <p>The chart updates from the data you enter in the Data tab.</p>
+            </div>
+            <button id="download-chart-btn" class="btn chart-download-btn" type="button">
+              Download PNG
+            </button>
+          </div>
+
+          <div class="chart-card">
+            <canvas id="financeChart"></canvas>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
