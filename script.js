@@ -49,6 +49,8 @@ function renderProducts() {
 }
 
 function renderCart() {
+  if (typeof document === "undefined") return;
+
   const list = document.getElementById("cart-items");
   const total = document.getElementById("cart-total");
   if (!list || !total) return;
@@ -248,5 +250,17 @@ function init() {
   document.getElementById("username-form")?.addEventListener("submit", handleUsernameSubmit);
 }
 
-window.addEventListener("DOMContentLoaded", init);
+if (typeof window !== "undefined" && window.addEventListener) {
+  window.addEventListener("DOMContentLoaded", init);
+}
+
+if (typeof module !== "undefined" && module.exports) {
+  module.exports = {
+    formatCurrency,
+    validateUsername,
+    addToCart,
+    cart,
+    products
+  };
+}
 
