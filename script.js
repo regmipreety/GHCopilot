@@ -242,34 +242,10 @@ function init() {
     });
   });
 
-  const usernameForm = document.getElementById("username-form");
-  const usernameInput = document.getElementById("username-input");
-  const usernameFeedback = document.getElementById("username-feedback");
-
-  usernameForm?.addEventListener("submit", handleUsernameSubmit);
-
-  usernameInput?.addEventListener("input", () => {
-    const value = usernameInput.value.trim();
-
-    if (!value) {
-      usernameFeedback.textContent = "";
-      usernameFeedback.className = "username-feedback";
-      usernameInput.setAttribute("aria-invalid", "false");
-      return;
-    }
-
-    if (validateUsername(value)) {
-      usernameFeedback.textContent = "Looks good.";
-      usernameFeedback.className = "username-feedback success";
-      usernameInput.setAttribute("aria-invalid", "false");
-    } else {
-      usernameFeedback.textContent = "Use at least 5 characters with an uppercase letter, a number, and a special character.";
-      usernameFeedback.className = "username-feedback error";
-      usernameInput.setAttribute("aria-invalid", "true");
-    }
-  });
+  
 
   document.getElementById("download-chart-btn")?.addEventListener("click", downloadChartAsPng);
+  document.getElementById("username-form")?.addEventListener("submit", handleUsernameSubmit);
 }
 
 window.addEventListener("DOMContentLoaded", init);
