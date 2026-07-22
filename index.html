@@ -20,6 +20,21 @@
         </div>
       </header>
 
+      <form id="username-form" class="username-form" novalidate>
+        <label for="username-input">Username</label>
+        <input
+          id="username-input"
+          name="username"
+          type="text"
+          minlength="5"
+          placeholder="Enter your username"
+          required
+          autocomplete="username"
+        />
+        <button type="submit" class="btn username-submit-btn">Submit</button>
+        <p id="username-feedback" class="username-feedback" aria-live="polite"></p>
+      </form>
+
       <nav class="tabs" aria-label="Primary">
         <button class="tab-btn active" data-target="products">Products</button>
         <button class="tab-btn" data-target="data">Data</button>
