@@ -49,6 +49,8 @@ function renderProducts() {
 }
 
 function renderCart() {
+  if (typeof document === "undefined") return;
+
   const list = document.getElementById("cart-items");
   const total = document.getElementById("cart-total");
   if (!list || !total) return;
@@ -201,6 +203,31 @@ function switchTab(targetId) {
   }
 }
 
+function validateUsername(username) {
+  return /^(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z\d]).{5,}$/.test(username);
+}
+
+function handleUsernameSubmit(event) {
+  event.preventDefault();
+
+  const input = document.getElementById("username-input");
+  const feedback = document.getElementById("username-feedback");
+  if (!input || !feedback) return;
+
+  const username = input.value.trim();
+
+  if (validateUsername(username)) {
+    feedback.textContent = `Username "${username}" looks good.`;
+    feedback.className = "username-feedback success";
+    input.setAttribute("aria-invalid", "false");
+    return;
+  }
+
+  feedback.textContent = "Username must be at least 5 characters, include 1 uppercase letter, 1 number, and 1 special character.";
+  feedback.className = "username-feedback error";
+  input.setAttribute("aria-invalid", "true");
+}
+
 function init() {
   buildMonthRows();
   updateSummary();
@@ -217,8 +244,23 @@ function init() {
     });
   });
 
+  
+
   document.getElementById("download-chart-btn")?.addEventListener("click", downloadChartAsPng);
+  document.getElementById("username-form")?.addEventListener("submit", handleUsernameSubmit);
 }
 
-window.addEventListener("DOMContentLoaded", init);
+if (typeof window !== "undefined" && window.addEventListener) {
+  window.addEventListener("DOMContentLoaded", init);
+}
+
+if (typeof module !== "undefined" && module.exports) {
+  module.exports = {
+    formatCurrency,
+    validateUsername,
+    addToCart,
+    cart,
+    products
+  };
+}
 

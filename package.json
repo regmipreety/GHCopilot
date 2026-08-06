@@ -1,0 +1,27 @@
+{
+  "name": "GH Copilt",
+  "version": "1.0.0",
+  "description": "Create project using GitHub Copilot",
+  "main": "script.test.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "jest": "^27.5.1"
+  },
+  "jest": {
+    "testEnvironment": "node"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/regmipreety/GHCopilot.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/regmipreety/GHCopilot/issues"
+  },
+  "homepage": "https://github.com/regmipreety/GHCopilot#readme"
+}

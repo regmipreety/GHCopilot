@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cell4You | Finance & Products</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css?v=3" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
   <body>
@@ -19,6 +19,21 @@
           </p>
         </div>
       </header>
+
+      <form id="username-form" class="username-form" novalidate>
+        <label for="username-input">Username</label>
+        <input
+          id="username-input"
+          name="username"
+          type="text"
+          minlength="5"
+          placeholder="Enter your username"
+          required
+          autocomplete="username"
+        />
+        <button type="submit" class="btn username-submit-btn">Submit</button>
+        <p id="username-feedback" class="username-feedback" aria-live="polite"></p>
+      </form>
 
       <nav class="tabs" aria-label="Primary">
         <button class="tab-btn active" data-target="products">Products</button>
@@ -74,6 +89,6 @@
       </main>
     </div>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=3" defer></script>
   </body>
 </html>
